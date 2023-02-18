@@ -22,7 +22,7 @@ def read(path: str) -> List[Dict]:
         jobs = csv.DictReader(f)
         for job in jobs:
             job_list.append(job)
-        return job_list
+    return job_list
 
 
 def get_unique_job_types(path: str) -> List[str]:
@@ -40,7 +40,12 @@ def get_unique_job_types(path: str) -> List[str]:
     list
         List of unique job types
     """
-    raise NotImplementedError
+    job_types = set()
+
+    job_list = read(path)
+    for job in job_list:
+        job_types.add(job["job_type"])
+    return job_types
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
