@@ -2,7 +2,7 @@ from functools import lru_cache
 from typing import List, Dict
 
 
-@lru_cache
+@lru_cache  # first commit
 def read(path: str) -> List[Dict]:
     """Reads a file from a given path and returns its contents
 
